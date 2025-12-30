@@ -601,3 +601,19 @@ td {
     box-shadow: none;
   }
 }
+/* Make action buttons inside the page body high-contrast (keeps header tabs unchanged) */
+.main .tab {
+  background: #005EB8;           /* NHS blue */
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  box-shadow: 0 8px 18px rgba(11, 18, 32, 0.12);
+}
+
+.main .tab:hover {
+  background: #004B93;
+}
+
+.main .tab:focus-visible {
+  outline: 3px solid rgba(0, 94, 184, 0.35);
+  outline-offset: 2px;
+}
