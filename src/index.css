@@ -1,0 +1,30 @@
+/* Global reset + NHS-friendly layout baseline */
+
+:root {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color: #0f172a;
+  background: #f6f8fb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #f6f8fb;
+}
+
+#root {
+  /* REMOVE the Vite template max-width + centering */
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}

@@ -1,0 +1,417 @@
+/* NHS-style polish for Liver Unit PTL Routing Dashboard */
+
+:root {
+  /* NHS-ish palette */
+  --nhs-blue: #005eb8;
+  --nhs-dark: #003087;
+  --nhs-aqua: #007f7f;
+  --warn: #b45309;
+
+  --bg: #f3f6fb;
+  --panel: #ffffff;
+  --text: #0b1220;
+  --muted: #516173;
+  --border: rgba(11, 18, 32, 0.12);
+  --shadow: 0 14px 34px rgba(11, 18, 32, 0.10);
+  --radius: 16px;
+}
+
+.appShell {
+  min-height: 100vh;
+  background:
+    radial-gradient(900px 420px at 12% 5%, rgba(0, 94, 184, 0.14), transparent 60%),
+    radial-gradient(900px 420px at 86% 9%, rgba(0, 127, 127, 0.10), transparent 62%),
+    linear-gradient(180deg, #eef4ff 0%, var(--bg) 38%, var(--bg) 100%);
+}
+
+/* Top NHS strip */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background:
+    linear-gradient(90deg, var(--nhs-blue), var(--nhs-dark));
+  border-bottom: 1px solid rgba(255,255,255,0.25);
+
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+/* Title block inside the strip */
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 0.2px;
+}
+
+.subtitle {
+  margin-top: 4px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 88ch;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.tab {
+  border: 1px solid rgba(255,255,255,0.28);
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  padding: 9px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 800;
+  letter-spacing: 0.1px;
+  transition: transform 120ms ease, background 120ms ease, border-color 120ms ease;
+}
+
+.tab:hover {
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.40);
+}
+
+.tab.active {
+  background: #ffffff;
+  color: var(--nhs-dark);
+  border-color: rgba(255,255,255,0.75);
+  box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+/* Main container */
+.main {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 18px 20px 26px;
+}
+
+/* Cards */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 14px;
+  position: relative;
+}
+
+/* Subtle “NHS dashboard” accent on cards */
+.card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  bottom: 14px;
+  width: 4px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, rgba(0,94,184,0.9), rgba(0,127,127,0.75));
+  opacity: 0.22;
+}
+
+/* Hero */
+.hero {
+  padding: 18px;
+  border-radius: 18px;
+  background:
+    radial-gradient(820px 260px at 20% 15%, rgba(0, 94, 184, 0.08), transparent 60%),
+    radial-gradient(820px 260px at 88% 10%, rgba(0, 127, 127, 0.06), transparent 60%),
+    #ffffff;
+}
+
+.heroTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.heroTitle {
+  font-size: 16px;
+  font-weight: 950;
+  color: var(--text);
+}
+
+.heroText {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 84ch;
+}
+
+.heroBadges {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Badges / pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid rgba(0, 94, 184, 0.22);
+  background: rgba(0, 94, 184, 0.08);
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--nhs-dark);
+}
+
+.badge.good {
+  border-color: rgba(0, 127, 127, 0.26);
+  background: rgba(0, 127, 127, 0.10);
+  color: #064e4e;
+}
+
+.badge.warn {
+  border-color: rgba(180, 83, 9, 0.28);
+  background: rgba(180, 83, 9, 0.10);
+  color: var(--warn);
+}
+
+/* KPI grid */
+.statsGrid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 1100px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.stat {
+  padding: 14px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, rgba(0,94,184,0.04), rgba(0,127,127,0.03));
+  border: 1px solid rgba(0, 94, 184, 0.12);
+  box-shadow: 0 10px 20px rgba(11, 18, 32, 0.08);
+}
+
+.statLabel {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 0.15px;
+}
+
+.statValue {
+  margin-top: 8px;
+  font-size: 28px;
+  font-weight: 980;
+  letter-spacing: 0.2px;
+  color: var(--text);
+}
+
+.statHint {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+/* Two-column section */
+.grid2 {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 12px;
+}
+
+@media (max-width: 1000px) {
+  .grid2 {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 980;
+  color: var(--text);
+  margin-bottom: 10px;
+  letter-spacing: 0.15px;
+}
+
+/* Bullets */
+.bullets {
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: var(--text);
+}
+
+.bullets li {
+  margin: 8px 0;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+/* Callout */
+.callout {
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  border: 1px dashed rgba(0, 94, 184, 0.35);
+  background: rgba(0, 94, 184, 0.06);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* Task filters row */
+.row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 210px;
+}
+
+.field label {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--muted);
+}
+
+select {
+  border: 1px solid var(--border);
+  background: #ffffff;
+  padding: 10px 10px;
+  border-radius: 12px;
+  color: var(--text);
+  outline: none;
+}
+
+/* Task cards */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .cardsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.cardTitle {
+  margin-top: 10px;
+  font-weight: 980;
+  color: var(--text);
+  line-height: 1.25;
+}
+
+.meta {
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--text);
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.chips {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  border: 1px solid rgba(0, 94, 184, 0.16);
+  background: rgba(0, 94, 184, 0.06);
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--nhs-dark);
+}
+
+/* Table */
+.tableWrap {
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 980px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(11, 18, 32, 0.08);
+}
+
+th {
+  background: rgba(0, 94, 184, 0.06);
+  font-size: 12px;
+  font-weight: 980;
+  color: var(--nhs-dark);
+}
+
+td {
+  font-size: 13px;
+  color: var(--text);
+}
+
+.flag {
+  font-weight: 980;
+  color: var(--warn);
+}
+
+/* Footer */
+.footer {
+  padding: 18px 20px;
+  color: var(--muted);
+  max-width: 1240px;
+  margin: 0 auto;
+}
