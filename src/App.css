@@ -415,3 +415,189 @@ td {
   max-width: 1240px;
   margin: 0 auto;
 }
+/* Manager-pack additions */
+
+.titleRow {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.headerPills {
+  display: inline-flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.headerPill {
+  font-weight: 900;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.26);
+  color: rgba(255,255,255,0.95);
+}
+
+/* Export dropdown */
+.exportMenu {
+  position: relative;
+  display: inline-flex;
+}
+
+.exportMenu:hover .exportDropdown {
+  display: block;
+}
+
+.exportDropdown {
+  display: none;
+  position: absolute;
+  right: 0;
+  top: 44px;
+  min-width: 220px;
+  background: #ffffff;
+  border: 1px solid rgba(11, 18, 32, 0.14);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(11, 18, 32, 0.22);
+  padding: 8px;
+  z-index: 999;
+}
+
+.exportDropdown button {
+  width: 100%;
+  text-align: left;
+  border: 1px solid rgba(11, 18, 32, 0.10);
+  background: rgba(0, 94, 184, 0.05);
+  padding: 10px 10px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 900;
+  margin: 6px 0;
+}
+
+.exportDropdown button:hover {
+  background: rgba(0, 94, 184, 0.10);
+}
+
+/* Risk banner */
+.riskBanner {
+  border: 1px solid rgba(180, 83, 9, 0.25);
+  background: rgba(180, 83, 9, 0.10);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 12px 28px rgba(11, 18, 32, 0.10);
+  margin-bottom: 12px;
+}
+
+.riskTitle {
+  font-weight: 950;
+  color: #7c2d12;
+}
+
+.riskDetail {
+  margin-top: 6px;
+  color: #7c2d12;
+  font-weight: 800;
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+/* Matrix cells */
+.matrixCell {
+  display: inline-flex;
+  min-width: 28px;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(11, 18, 32, 0.10);
+  background: rgba(11, 18, 32, 0.02);
+  font-weight: 900;
+}
+
+.matrixCell.strong {
+  border-color: rgba(0, 94, 184, 0.22);
+  background: rgba(0, 94, 184, 0.10);
+  color: #003087;
+}
+
+/* Modal helpers */
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 18px;
+  z-index: 999;
+}
+
+.modalCard {
+  width: min(980px, 96vw);
+  max-height: 85vh;
+  overflow: auto;
+  padding: 16px;
+}
+
+.modalTop {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.modalTitle {
+  font-weight: 950;
+  font-size: 16px;
+}
+
+.modalActions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.modalFilters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+  align-items: flex-end;
+}
+
+.textInput {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(11, 18, 32, 0.12);
+  outline: none;
+  font-weight: 800;
+}
+
+.textArea {
+  width: 100%;
+  min-height: 120px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(11, 18, 32, 0.12);
+  outline: none;
+  font-weight: 700;
+  resize: vertical;
+}
+
+/* Print mode */
+@media print {
+  .header, .exportMenu, .tabs, .tab, .modalOverlay {
+    display: none !important;
+  }
+  .main {
+    max-width: none;
+    padding: 0;
+  }
+  .card {
+    box-shadow: none;
+  }
+}
